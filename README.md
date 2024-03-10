@@ -13,7 +13,7 @@ Steps for CAS:
 Steps for Latin: 
 1. Run "ETDRS_Latin.py" to generate the TeX output. Unlike for CAS, there are 3 standard sequences of optotypes (Chart1/Chart2/ChartR). Choose one of these sequences where indicated in the code and then set aside the output so that you can refer to it in steps 2/3.
 2. Open "Latin.TeX" and identify the code section "Length definitions". Copy the corresponding TeX output from step 1 and use it to replace the "Length definitions" section in LaTeX file.
-3. In "Latin.TeX", identify the code section that begins with "\begin{longtable}{ccc}" and ends with "\end{longtable}". Copy the corresponding TeX output from step 1 and use it to replace this section in LaTeX file.
+3. In "LatinChart1.TeX" (or equivalent), identify the code section that begins with "\begin{longtable}{ccc}" and ends with "\end{longtable}". Copy the corresponding TeX output from step 1 and use it to replace this section in LaTeX file.
 4. If viewing from a non-standard distance (other than 4m), be sure to adjust the "\factor" argument in the .TeX file to adjust accordingly.
 8. We recommend using [Overleaf](https://overleaf.com) for compiling the .TeX file to generate the corresponding PDF eye chart. You will need to alter the settings to use the XeLaTeX compiler.
 
