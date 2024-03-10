@@ -51,6 +51,10 @@ for line, row in enumerate(rows):
     logMAR_value = -0.1 * (line - 10)
     visual_acuity_20 = round(20 * 10 ** logMAR_value)
     visual_acuity_6 = round(6 * 10 ** logMAR_value)
+
+    # Correct negative zero to positive zero for display purposes
+    if abs(logMAR_value) < 1e-6:  # Check if logMAR_value is "close enough" to zero
+        logMAR_value = 0.0  # Set to positive zero
     
     # Calculate spacing based on the next line's optotype size, if available
     vspace = optotype_sizes[line + 1] if line + 1 < len(optotype_sizes) else 0
