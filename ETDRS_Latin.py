@@ -15,7 +15,11 @@ chart2 = "DSRKNCKZOHONRKDKZVDCVSHZOHDKCRCSRHNSVZDKNCVOZRHSDVSNROHODHKRZKCSNCRHDV
 chartR = "HVZDSNCVKDCZSHNONVSRKDNROZKCSVDVOHCOHVCKHZCKONCKHDZHCSRSZRDNHCDRORDOSN"
 
 # Choose which chart to use
-optotypes = list(chart2)  # pick the chart you want to create
+chart_selection = "chart2"  # Update this variable to "chart1", "chart2", or "chartR" to select a chart
+optotypes = list(eval(chart_selection))  # dynamically select the chart based on the variable
+
+# Determine chart designation for the header
+chart_designation = {"chart1": "Chart 1", "chart2": "Chart 2", "chartR": "Chart R"}[chart_selection]
 
 # ETDRS chart configuration
 glyphs_per_row = 5
@@ -46,7 +50,7 @@ for line in range(len(rows)):
 
 output.append("\n% Tables\n")
 output.append(r"\begin{longtable}{ccc}")
-output.append(r"\textbf{20/  6/} & \textbf{Optotypes} & \textbf{LogMAR} \\ \hline")
+output.append(f"\\textbf{{20/  6/}} & \\textbf{{Optotypes [{chart_designation}]}} & \\textbf{{LogMAR}} \\\\ \\hline")
 for line, row in enumerate(rows):
     logMAR_value = -0.1 * (line - 10)
     visual_acuity_20 = round(20 * 10 ** logMAR_value)
